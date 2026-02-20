@@ -12,6 +12,12 @@ inputs:
   modules:
     description: 'Paths to your modules (apps) in package scope that you want to build'
     required: false
+  repo:
+    description: 'URL to target repository'
+    required: false
+  branch:
+    description: 'Target branch on repository'
+    required: false
   meta:
     description: 'Paths to dependent module and namespace repositories'
     required: false

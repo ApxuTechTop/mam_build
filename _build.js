@@ -45,10 +45,13 @@ let meta = core.getInput( 'meta', { required: false } )
 meta = meta ? meta.trim().split('\n').map( str => str.split(' ') ) : []
 console.log('meta', JSON.stringify(meta))
 
-const repository = event.pull_request && event.pull_request.head.repo.full_name || process.env.GITHUB_REPOSITORY
+const repository = core.getInput('repo', {required: false})
+	|| event.pull_request && event.pull_request.head.repo.full_name
+	|| process.env.GITHUB_REPOSITORY
 console.log( 'repository' , repository )
 
-const ref = event.ref && event.ref.replace( 'refs/heads/', '' )
+const ref = core.getInput('branch', {required: false})
+	|| event.ref && event.ref.replace( 'refs/heads/', '' )
 	|| event.pull_request && event.pull_request.head.ref
 	|| 'master'
 console.log( 'ref' , ref )
