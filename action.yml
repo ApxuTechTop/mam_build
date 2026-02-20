@@ -13,7 +13,7 @@ inputs:
     description: 'Paths to your modules (apps) in package scope that you want to build'
     required: false
   repo:
-    description: 'URL to target repository'
+    description: 'Repository path (e.g., username/reponame)'
     required: false
   branch:
     description: 'Target branch on repository'
